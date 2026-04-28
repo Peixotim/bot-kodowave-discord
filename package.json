@@ -1,0 +1,39 @@
+{
+  "name": "bot-kodowave-discord",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "build": "tsc src/index.ts",
+    "start": "tsc src/index.ts && node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Peixotim/bot-kodowave-discord.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Peixotim/bot-kodowave-discord/issues"
+  },
+  "homepage": "https://github.com/Peixotim/bot-kodowave-discord#readme",
+  "dependencies": {
+    "@discordjs/opus": "^0.10.0",
+    "@discordjs/voice": "^0.19.2",
+    "colors": "^1.4.0",
+    "discord.js": "^14.26.3",
+    "dotenv": "^17.4.2",
+    "ffmpeg-static": "^5.3.0",
+    "ts-lib": "^0.0.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3",
+    "ytdl-core": "^4.11.5"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0"
+  }
+}

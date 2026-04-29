@@ -6,12 +6,7 @@ import {
   SlashCommandBuilder,
 } from "discord.js";
 import { DisTube } from "distube";
-
-function withTimeout(ms: number): Promise<never> {
-  return new Promise((_, reject) =>
-    setTimeout(() => reject(new Error("TIMEOUT")), ms),
-  );
-}
+import { withTimeout } from "@/utils/withTimout";
 
 export default {
   data: new SlashCommandBuilder()

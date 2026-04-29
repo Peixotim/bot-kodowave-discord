@@ -1,11 +1,11 @@
-import { BotEvent } from "@/types";
+import distube from "../managers/MusicManager";
+import { BotEvent } from "../types";
 import { Events, Interaction } from "discord.js";
-import { error } from "node:console";
 
 export default {
   name: Events.InteractionCreate,
   once: false,
-  execute(interaction: Interaction) {
+  async execute(interaction: Interaction) {
     if (!interaction.isChatInputCommand()) {
       return;
     }
@@ -17,10 +17,19 @@ export default {
     }
 
     try {
-      command.execute(interaction);
+      await command.execute(interaction, distube);
     } catch (error) {
       console.error(error);
-      interaction.reply(`An error occurred while executing this command.`);
+
+      const errorMessage = "Ocorreu um erro ao executar esse comando.";
+
+      if (interaction.deferred) {
+        await interaction.editReply({ content: errorMessage });
+      } else if (interaction.replied) {
+        await interaction.followUp({ content: errorMessage, ephemeral: true });
+      } else {
+        await interaction.reply({ content: errorMessage, ephemeral: true });
+      }
     }
   },
 } satisfies BotEvent;

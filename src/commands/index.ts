@@ -6,8 +6,9 @@ import pause from "./music/pause";
 import queue from "./music/queue";
 import stop from "./music/stop";
 import guide from "./music/guide";
+import loop from "./music/loop";
 
-const commands: Command[] = [play, skip, pause, queue, stop, guide];
+const commands: Command[] = [play, skip, pause, queue, stop, guide, loop];
 
 export function loadCommands(client: Client) {
   for (const command of commands) {

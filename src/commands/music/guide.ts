@@ -253,11 +253,22 @@ export default {
     const pages = getPages(interaction.client.ws.ping, avatarURL);
     let current = 0;
 
-    const reply = await interaction.reply({
+    const response = await interaction.reply({
       embeds: [pages[current]],
       components: [buildButtons(current, pages.length)],
-      fetchReply: true,
+      withResponse: true,
     });
+
+    if (!response.resource) {
+      return;
+    }
+
+    const reply = response.resource.message;
+
+    if (!reply) {
+      console.error(`Reply is null verify reply ${reply}`);
+      return;
+    }
 
     const collector = reply.createMessageComponentCollector({
       componentType: ComponentType.Button,

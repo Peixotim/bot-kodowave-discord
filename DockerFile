@@ -1,22 +1,15 @@
 FROM node:20-alpine
 
-# Instala o pnpm globalmente
 RUN npm install -g pnpm
 
 WORKDIR /app
 
-# Copia os arquivos de dependência primeiro
-# Docker cacheia essa camada — só reinstala se mudar o package.json
 COPY package.json pnpm-lock.yaml ./
 
-# Instala apenas dependências de produção
 RUN pnpm install --frozen-lockfile
 
-# Copia o resto do código
 COPY . .
 
-# Compila TypeScript para JavaScript
 RUN pnpm run build
 
-# Comando que roda quando o container sobe
 CMD ["node", "dist/index.js"]

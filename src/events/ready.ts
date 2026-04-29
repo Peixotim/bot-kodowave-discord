@@ -5,6 +5,6 @@ export default {
   name: Events.ClientReady,
   once: true,
   execute(client: Client) {
-    console.log(`Bot online with ${client.user?.tag}`);
+    console.log(`Bot online ${client.user?.tag}`);
   },
 } satisfies BotEvent;

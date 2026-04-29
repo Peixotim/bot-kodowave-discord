@@ -47,7 +47,6 @@ export default {
       await interaction.editReply("Processando sua música!");
     } catch (error: any) {
       console.error(error);
-
       if (error.message === "TIMEOUT") {
         await interaction.editReply(
           "⏱️ Demorou muito para carregar. Tente novamente com outra URL.",

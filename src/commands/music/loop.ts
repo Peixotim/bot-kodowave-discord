@@ -1,12 +1,11 @@
 import {
   ChatInputCommandInteraction,
   GuildMember,
-  GuildTextBasedChannel,
   SlashCommandBuilder,
 } from "discord.js";
 import { DisTube, RepeatMode } from "distube";
-import { withTimeout } from "../../utils/withTimeout";
-import { Command } from "@/types";
+import { Command } from "../../types";
+
 export default {
   data: new SlashCommandBuilder()
     .setName("loop")

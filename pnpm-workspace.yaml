@@ -1,0 +1,5 @@
+allowBuilds:
+  '@discordjs/opus': true
+  '@distube/yt-dlp': true
+  ffmpeg-static: true
+  yt-dlp-exec: true

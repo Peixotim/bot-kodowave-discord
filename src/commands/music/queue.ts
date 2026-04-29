@@ -1,4 +1,8 @@
-import { ChatInputCommandInteraction, SlashCommandBuilder, EmbedBuilder } from "discord.js";
+import {
+  ChatInputCommandInteraction,
+  SlashCommandBuilder,
+  EmbedBuilder,
+} from "discord.js";
 import { DisTube } from "distube";
 import { Command } from "../../types";
 
@@ -10,7 +14,9 @@ export default {
   async execute(interaction: ChatInputCommandInteraction, distube: DisTube) {
     const guild = interaction.guildId;
     if (!guild) {
-      await interaction.reply("O comando só pode ser executado em um servidor!");
+      await interaction.reply(
+        "O comando só pode ser executado em um servidor!",
+      );
       return;
     }
 
@@ -35,12 +41,10 @@ export default {
       .setColor(0x000000)
       .setTitle("🎼 Fila de Reprodução")
       .setDescription(list)
-      .addFields(
-        { 
-          name: "📊 Status", 
-          value: `Total de músicas: \`${queue.songs.length}\` | Duração total: \`${queue.formattedDuration}\`` 
-        }
-      )
+      .addFields({
+        name: "📊 Status",
+        value: `Total de músicas: \`${queue.songs.length}\` | Duração total: \`${queue.formattedDuration}\``,
+      })
       .setFooter({ text: "KodoWave Premium" })
       .setTimestamp();
 

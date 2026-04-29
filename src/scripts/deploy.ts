@@ -6,8 +6,9 @@ import { REST, Routes } from "discord.js";
 import pause from "../commands/music/pause";
 import queue from "../commands/music/queue";
 import stop from "../commands/music/stop";
+import guide from "../commands/music/guide";
 
-const commands: Command[] = [play, skip, pause, queue, stop];
+const commands: Command[] = [play, skip, pause, queue, stop, guide];
 const rest: REST = new REST({ version: "10" }).setToken(DISCORD_TOKEN);
 
 async function deploy() {

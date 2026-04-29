@@ -5,10 +5,14 @@ import {
   ChatInputCommandInteraction,
   SlashCommandOptionsOnlyBuilder,
 } from "discord.js";
+import DisTube from "distube";
 
 export interface Command {
   data: SlashCommandBuilder | SlashCommandOptionsOnlyBuilder;
-  execute: (interaction: ChatInputCommandInteraction) => Promise<void>;
+  execute: (
+    interaction: ChatInputCommandInteraction,
+    distube: DisTube,
+  ) => Promise<void>;
 }
 
 export interface BotEvent {

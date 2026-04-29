@@ -6,7 +6,7 @@ import {
   SlashCommandBuilder,
 } from "discord.js";
 import { DisTube } from "distube";
-import { withTimeout } from "../../utils/withTimout";
+import { withTimeout } from "../../utils/withTimeout";
 
 export default {
   data: new SlashCommandBuilder()

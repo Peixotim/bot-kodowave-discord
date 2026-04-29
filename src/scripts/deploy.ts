@@ -7,8 +7,9 @@ import pause from "../commands/music/pause";
 import queue from "../commands/music/queue";
 import stop from "../commands/music/stop";
 import guide from "../commands/music/guide";
+import loop from "../commands/music/loop";
 
-const commands: Command[] = [play, skip, pause, queue, stop, guide];
+const commands: Command[] = [play, skip, pause, queue, stop, guide, loop];
 const rest: REST = new REST({ version: "10" }).setToken(DISCORD_TOKEN);
 
 async function deploy() {

@@ -7,3 +7,4 @@ const spotifySchema = z.object({
 });
 
 export const spotifyEnv = spotifySchema.parse(process.env);
+console.log(spotifyEnv);

@@ -11,3 +11,4 @@ const soundCloudSchema = z.object({
 });
 
 export const soundcloudEnv = soundCloudSchema.parse(process.env);
+console.log(soundcloudEnv);

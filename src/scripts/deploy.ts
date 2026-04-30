@@ -15,7 +15,7 @@ const rest: REST = new REST({ version: "10" }).setToken(DISCORD_TOKEN);
 async function deploy() {
   try {
     console.log(`Register slash commands ...`);
-    await rest.put(Routes.applicationGuildCommands(CLIENT_ID, GUILD_ID), {
+    await rest.put(Routes.applicationCommands(CLIENT_ID), {
       body: commands.map((command) => command.data.toJSON()),
     });
     console.log("Slash commands registrados com sucesso!");

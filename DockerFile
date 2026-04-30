@@ -6,6 +6,7 @@ RUN apt-get update && \
     python3 \
     python-is-python3 \
     build-essential \
+    ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g pnpm
@@ -14,7 +15,9 @@ WORKDIR /app
 
 COPY package.json pnpm-lock.yaml ./
 
-RUN pnpm install --frozen-lockfile
+ENV CACHE_BUST=1
+
+RUN pnpm install --frozen-lockfile --ignore-scripts=false
 
 COPY . .
 

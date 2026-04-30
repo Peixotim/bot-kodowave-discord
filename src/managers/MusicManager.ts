@@ -12,6 +12,7 @@ import {
   SPOTIFY_CLIENT_ID,
   SPOTIFY_CLIENT_SECRET,
 } from "../utils/credentialSpotify";
+import "dotenv/config";
 
 const distube = new DisTube(client, {
   plugins: [

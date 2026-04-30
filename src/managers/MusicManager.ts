@@ -4,11 +4,18 @@ import SoundCloudPlugin from "@distube/soundcloud";
 import { YtDlpPlugin } from "@distube/yt-dlp";
 import client from "../client";
 import { EmbedBuilder } from "discord.js";
+import {
+  SOUNDCLOUD_CLIENT_ID,
+  SOUNDCLOUD_OAUTH_TOKEN,
+} from "@/utils/credentialsSoundCloud";
 
 const distube = new DisTube(client, {
   plugins: [
     new SpotifyPlugin(),
-    new SoundCloudPlugin(),
+    new SoundCloudPlugin({
+      clientId: SOUNDCLOUD_CLIENT_ID,
+      oauthToken: SOUNDCLOUD_OAUTH_TOKEN,
+    }),
     new YtDlpPlugin({
       update: false,
     }),

@@ -8,10 +8,19 @@ import {
   SOUNDCLOUD_CLIENT_ID,
   SOUNDCLOUD_OAUTH_TOKEN,
 } from "../utils/credentialsSoundCloud";
+import {
+  SPOTIFY_CLIENT_ID,
+  SPOTIFY_CLIENT_SECRET,
+} from "../utils/credentialSpotify";
 
 const distube = new DisTube(client, {
   plugins: [
-    new SpotifyPlugin(),
+    new SpotifyPlugin({
+      api: {
+        clientId: SPOTIFY_CLIENT_ID,
+        clientSecret: SPOTIFY_CLIENT_SECRET,
+      },
+    }),
     new SoundCloudPlugin({
       clientId: SOUNDCLOUD_CLIENT_ID,
       oauthToken: SOUNDCLOUD_OAUTH_TOKEN,

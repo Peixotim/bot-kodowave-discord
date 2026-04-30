@@ -1,2 +1,9 @@
-export const SPOTIFY_CLIENT_ID = process.env.SPOTIFY_CLIENT_ID;
-export const SPOTIFY_CLIENT_SECRET = process.env.SPOTIFY_CLIENT_SECRET;
+import { z } from "zod";
+import "dotenv/config";
+
+const spotifySchema = z.object({
+  SPOTIFY_CLIENT_ID: z.string().min(1, "CONFIGURE O SPOTIFY_CLIENT_ID"),
+  SPOTIFY_CLIENT_SECRET: z.string().min(1, "CONFIGURE O SECRET DO SPOTIFY"),
+});
+
+export const spotifyEnv = spotifySchema.parse(process.env);

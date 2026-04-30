@@ -7,7 +7,7 @@ import { EmbedBuilder } from "discord.js";
 import {
   SOUNDCLOUD_CLIENT_ID,
   SOUNDCLOUD_OAUTH_TOKEN,
-} from "@/utils/credentialsSoundCloud";
+} from "../utils/credentialsSoundCloud";
 
 const distube = new DisTube(client, {
   plugins: [

@@ -4,27 +4,20 @@ import SoundCloudPlugin from "@distube/soundcloud";
 import { YtDlpPlugin } from "@distube/yt-dlp";
 import client from "../client";
 import { EmbedBuilder } from "discord.js";
-import {
-  SOUNDCLOUD_CLIENT_ID,
-  SOUNDCLOUD_OAUTH_TOKEN,
-} from "../utils/credentialsSoundCloud";
-import {
-  SPOTIFY_CLIENT_ID,
-  SPOTIFY_CLIENT_SECRET,
-} from "../utils/credentialSpotify";
-import "dotenv/config";
+import { soundcloudEnv } from "../utils/credentialsSoundCloud";
+import { spotifyEnv } from "../utils/credentialSpotify";
 
 const distube = new DisTube(client, {
   plugins: [
     new SpotifyPlugin({
       api: {
-        clientId: SPOTIFY_CLIENT_ID,
-        clientSecret: SPOTIFY_CLIENT_SECRET,
+        clientId: spotifyEnv.SPOTIFY_CLIENT_ID,
+        clientSecret: spotifyEnv.SPOTIFY_CLIENT_SECRET,
       },
     }),
     new SoundCloudPlugin({
-      clientId: SOUNDCLOUD_CLIENT_ID,
-      oauthToken: SOUNDCLOUD_OAUTH_TOKEN,
+      clientId: soundcloudEnv.SOUNDCLOUD_CLIENT_ID,
+      oauthToken: soundcloudEnv.SOUNDCLOUD_OAUTH_TOKEN,
     }),
     new YtDlpPlugin({
       update: false,

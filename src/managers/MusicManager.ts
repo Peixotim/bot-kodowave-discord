@@ -73,8 +73,9 @@ distube
       .setTitle("⚠️ Falha na Reprodução")
       .setDescription(`\`\`\`${error.message.substring(0, 2000)}\`\`\``)
       .setFooter({ text: "Sistema de Auto-Recuperação Ativo" });
-
     queue.textChannel?.send({ embeds: [embed] });
+    console.log(`Mensagem de erro : ${error.message}`);
+    console.log(`Erro completo : ${error}`);
   });
 
 export default distube;

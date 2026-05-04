@@ -1,10 +1,11 @@
 import DisTube, { Queue, Song, Events } from "distube";
 import SpotifyPlugin from "@distube/spotify";
 import SoundCloudPlugin from "@distube/soundcloud";
-import { YtDlpPlugin } from "@distube/yt-dlp";
 import client from "../client";
 import { EmbedBuilder } from "discord.js";
 import { soundcloudEnv } from "../utils/credentialsSoundCloud";
+import { DeezerPlugin } from "@distube/deezer";
+import { AppleMusicPlugin } from "@distube/apple-music";
 import { spotifyEnv } from "../utils/credentialSpotify";
 
 const distube = new DisTube(client, {
@@ -15,16 +16,14 @@ const distube = new DisTube(client, {
         clientSecret: spotifyEnv.SPOTIFY_CLIENT_SECRET,
       },
     }),
+    new AppleMusicPlugin(),
+    new DeezerPlugin(),
     new SoundCloudPlugin({
       clientId: soundcloudEnv.SOUNDCLOUD_CLIENT_ID,
       oauthToken: soundcloudEnv.SOUNDCLOUD_OAUTH_TOKEN,
     }),
-    new YtDlpPlugin({
-      update: false,
-    }),
   ],
 });
-
 const THEME = {
   PLAYING: 0x000000,
   ADDED: 0xffffff,
